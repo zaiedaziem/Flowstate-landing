@@ -1,0 +1,76 @@
+* { margin: 0; box-sizing: border-box; }
+
+/* Adaptive rem grid — the whole layout is rem-based and scales with the viewport. */
+html { font-size: 16px; }
+@media (max-width: 1920px) { html { font-size: 0.833333vw; } } /* 16*100/1920 */
+@media (max-width: 1440px) { html { font-size: 1.111111vw; } } /* 16*100/1440 */
+@media (max-width: 1024px) { html { font-size: 1.5625vw;   } } /* 16*100/1024 */
+@media (max-width: 640px)  { html { font-size: 4.444444vw; } } /* 16*100/360  */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Onest", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  background: var(--hero-base);
+  color: var(--heading);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+input { font: inherit; }
+img, svg { display: block; max-width: 100%; }
+ul, ol { list-style: none; padding: 0; }
+h1, h2, h3, h4 { font-weight: 500; }
+
+::selection { background: rgba(154, 77, 255, 0.45); color: #fff; }
+
+/* SplitText pieces must be transformable. */
+.word, .char { display: inline-block; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Accessibility helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem; left: 0.75rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  border-radius: 9999px;
+  background: var(--action-inverse);
+  color: var(--action-inverse-fg);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-entrance);
+}
+.skip-link:focus { transform: none; }
+
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+  border-radius: 0.375rem;
+}
+
+/* Custom cursor: hide the native one only where the custom cursor runs. */
+html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor label { cursor: none; }
+html.has-cursor input { cursor: text; }

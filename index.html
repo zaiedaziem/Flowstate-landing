@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Flowstate — Deep Work in a Distracted World</title>
+  <meta name="description" content="Flowstate is a deep-work app that cuts through the noise: focus sessions, smart blocking and adaptive soundscapes that help you reclaim your attention. Join the waitlist.">
+  <meta name="theme-color" content="#04050c">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flowstate">
+  <meta property="og:title" content="Flowstate — Deep Work in a Distracted World">
+  <meta property="og:description" content="Cut through the noise, reclaim your attention, and do work that truly matters. Join 10K+ people already in flow.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Flowstate — Deep Work in a Distracted World">
+  <meta name="twitter:description" content="Cut through the noise, reclaim your attention, and do work that truly matters.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2327e3f2'/%3E%3Cstop offset='.5' stop-color='%239a4dff'/%3E%3Cstop offset='1' stop-color='%23f03ce0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%2304050c'/%3E%3Cg transform='translate(4 3)' fill='none' stroke='url(%23g)' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M2.5 9c2.5 0 2.5 4.2 5 4.2S10 9 12 9s2.5 4.2 5 4.2S19.5 9 21.5 9'/%3E%3Cpath d='M2.5 15c2.5 0 2.5 4.2 5 4.2S10 15 12 15s2.5 4.2 5 4.2S19.5 15 21.5 15' opacity='.5'/%3E%3C/g%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Non-blocking font CSS: preload, then promote to a stylesheet; display=swap keeps text visible. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&display=swap"></noscript>
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Atmosphere (fixed, behind everything) -->
+  <canvas class="fluid" aria-hidden="true"></canvas>
+  <div class="fluid-fallback" aria-hidden="true"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-nav">
+    <div class="site-nav__inner" data-hero-item>
+      <a href="/" class="brand" aria-label="Flowstate home">
+        <svg class="brand__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M2.5 9c2.5 0 2.5 4.2 5 4.2S10 9 12 9s2.5 4.2 5 4.2S19.5 9 21.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M2.5 15c2.5 0 2.5 4.2 5 4.2S10 15 12 15s2.5 4.2 5 4.2S19.5 15 21.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <span>Flowstate</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how-it-works">How it works?</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#products">Products</a>
+        <a href="#blog">Blog</a>
+      </nav>
+      <a href="#get-started" class="pill" data-magnetic><span class="pill__label">Get Started</span></a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__col">
+        <p class="hero__badge" data-hero-item data-hero="badge">10K+ already in flow</p>
+        <h1 class="hero__title" id="hero-title" data-hero-item data-hero="title">Deep Work in a Distracted World</h1>
+        <p class="hero__sub" data-hero-item data-hero="sub">Cut through the noise, reclaim your attention, and do work that truly matters.</p>
+        <div class="hero__form" data-hero-item data-hero="form">
+          <form class="waitlist" data-waitlist novalidate>
+            <label class="sr-only" for="hero-email">Email address</label>
+            <div class="waitlist__bar">
+              <input class="waitlist__input" id="hero-email" name="email" type="email" required autocomplete="email" placeholder="Enter your email" aria-describedby="hero-email-msg">
+              <button type="submit" class="pill" data-magnetic><span class="pill__label">Join Waitlist</span></button>
+            </div>
+            <p class="waitlist__msg" id="hero-email-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+      <p class="hero__foot" data-hero-item data-hero="foot">© 2026 Flowstate — engineered for deep work.</p>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how" id="how-it-works" aria-labelledby="how-title">
+      <div class="container how__grid">
+        <div class="how__copy">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">How it works</p>
+            <h2 class="title" id="how-title">Three steps into <span class="ink-text">flow</span></h2>
+          </div>
+          <ol class="steps">
+            <li class="step" data-step>
+              <span class="step__num" aria-hidden="true">01</span>
+              <div>
+                <h3 class="step__title">Set your intention</h3>
+                <p class="step__text">Name the one thing that matters. Flowstate shapes a session around it and quietly sets everything else aside.</p>
+              </div>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num" aria-hidden="true">02</span>
+              <div>
+                <h3 class="step__title">Silence the noise</h3>
+                <p class="step__text">Notifications, tabs and apps that pull you away wait at the door until you choose to surface.</p>
+              </div>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num" aria-hidden="true">03</span>
+              <div>
+                <h3 class="step__title">Ride the current</h3>
+                <p class="step__text">Adaptive sound and gentle pacing keep you deep, and your streaks show how far you’ve come.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="how__visual card" aria-hidden="true">
+          <svg class="flow-svg" viewBox="0 0 400 520" fill="none">
+            <defs>
+              <linearGradient id="flow-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#27e3f2"/>
+                <stop offset="0.4" stop-color="#3d6bff"/>
+                <stop offset="0.7" stop-color="#9a4dff"/>
+                <stop offset="1" stop-color="#f03ce0"/>
+              </linearGradient>
+              <radialGradient id="node-halo">
+                <stop offset="0" stop-color="#9a4dff" stop-opacity="0.75"/>
+                <stop offset="1" stop-color="#9a4dff" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <path class="flow-track" d="M70 36 C 220 30, 350 96, 300 176 S 70 262, 110 344 S 360 404, 330 486" stroke="rgba(255,255,255,0.10)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+            <path class="flow-glow" d="M70 36 C 220 30, 350 96, 300 176 S 70 262, 110 344 S 360 404, 330 486" stroke="url(#flow-grad)" stroke-width="14" stroke-linecap="round" opacity="0.22"/>
+            <path class="flow-line" d="M70 36 C 220 30, 350 96, 300 176 S 70 262, 110 344 S 360 404, 330 486" stroke="url(#flow-grad)" stroke-width="3" stroke-linecap="round"/>
+            <g class="flow-nodes"></g>
+          </svg>
+          <div class="how__meter"><span class="how__count">01</span><span class="how__total">/ 03</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Features</p>
+          <h2 class="title" id="features-title">Built for the deep end</h2>
+          <p class="lede">Everything you need to protect your attention, and nothing that competes for it.</p>
+        </div>
+
+        <div class="bento">
+          <article class="card feature feature--wide" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual feature__visual--timer" aria-hidden="true">
+              <svg viewBox="0 0 120 120" class="timer">
+                <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.08)" stroke-width="6" fill="none"/>
+                <circle cx="60" cy="60" r="50" stroke="url(#flow-grad)" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="92" transform="rotate(-90 60 60)"/>
+              </svg>
+              <div class="timer__read"><span class="timer__time">42:17</span><span class="timer__task">Q4 strategy memo</span></div>
+            </div>
+            <h3 class="feature__title">Focus sessions</h3>
+            <p class="feature__text">Timeboxed deep-work blocks with a single intention, gentle breaks, and a clean finish line.</p>
+          </article>
+
+          <article class="card feature" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual" aria-hidden="true">
+              <ul class="chips">
+                <li class="chip chip--blocked">Slack</li>
+                <li class="chip chip--blocked">News</li>
+                <li class="chip chip--blocked">Mail</li>
+                <li class="chip chip--ok">Docs</li>
+              </ul>
+            </div>
+            <h3 class="feature__title">Smart blocking</h3>
+            <p class="feature__text">Learns what pulls you under and holds it back, on every device.</p>
+          </article>
+
+          <article class="card feature" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual" aria-hidden="true">
+              <div class="eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <h3 class="feature__title">Soundscapes</h3>
+            <p class="feature__text">Generative rain, brown noise and tide that slow as you settle in.</p>
+          </article>
+
+          <article class="card feature feature--wide" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual" aria-hidden="true">
+              <div class="bars">
+                <span style="--h:.42"><i>M</i></span><span style="--h:.66"><i>T</i></span><span style="--h:.55"><i>W</i></span><span style="--h:.88"><i>T</i></span><span style="--h:.74"><i>F</i></span><span style="--h:.28"><i>S</i></span><span style="--h:.18"><i>S</i></span>
+              </div>
+            </div>
+            <h3 class="feature__title">Flow analytics</h3>
+            <p class="feature__text">See when you go deepest, what breaks the spell, and how your streaks grow week over week.</p>
+          </article>
+
+          <article class="card feature feature--wide" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual" aria-hidden="true">
+              <div class="day">
+                <div class="day__slot"><span>9:00</span><b class="day__block day__block--focus">Deep work · protected</b></div>
+                <div class="day__slot"><span>11:00</span><b class="day__block">Design review</b></div>
+                <div class="day__slot"><span>14:00</span><b class="day__block day__block--focus">Deep work · protected</b></div>
+              </div>
+            </div>
+            <h3 class="feature__title">Calendar shield</h3>
+            <p class="feature__text">Reserves your best hours before meetings can claim them and declines politely on your behalf.</p>
+          </article>
+
+          <article class="card feature" data-tilt data-reveal>
+            <div class="feature__spot" aria-hidden="true"></div>
+            <div class="feature__visual" aria-hidden="true">
+              <div class="sync"><span class="sync__dev">⌘</span><span class="sync__line"></span><span class="sync__dev">◐</span><span class="sync__line"></span><span class="sync__dev">◎</span></div>
+            </div>
+            <h3 class="feature__title">Everywhere sync</h3>
+            <p class="feature__text">Start on your laptop and your phone falls quiet too.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section stats" aria-labelledby="stats-title">
+      <div class="container">
+        <h2 class="sr-only" id="stats-title">Flowstate by the numbers</h2>
+        <dl class="stats__grid">
+          <div class="stat" data-reveal>
+            <dt class="stat__label">people on the waitlist</dt>
+            <dd class="stat__value"><span class="sr-only">10K+</span><span aria-hidden="true" data-count="10" data-suffix="K+">10K+</span></dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt class="stat__label">deep-work minutes in beta</dt>
+            <dd class="stat__value"><span class="sr-only">2.4M</span><span aria-hidden="true" data-count="2.4" data-decimals="1" data-suffix="M">2.4M</span></dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt class="stat__label">fewer context switches</dt>
+            <dd class="stat__value"><span class="sr-only">47%</span><span aria-hidden="true" data-count="47" data-suffix="%">47%</span></dd>
+          </div>
+          <div class="stat" data-reveal>
+            <dt class="stat__label">average beta rating</dt>
+            <dd class="stat__value"><span class="sr-only">4.9 out of 5</span><span aria-hidden="true" data-count="4.9" data-decimals="1" data-suffix="/5">4.9/5</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="products" id="products" aria-labelledby="products-title">
+      <div class="products__pin">
+        <div class="container products__head">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Products</p>
+            <h2 class="title" id="products-title">One current, every surface</h2>
+          </div>
+          <div class="products__progress" aria-hidden="true"><span class="products__progress-fill"></span></div>
+        </div>
+
+        <div class="products__viewport" data-reveal>
+          <ul class="products__track">
+            <li class="product card">
+              <div class="product__copy">
+                <p class="product__tag">macOS &amp; Windows</p>
+                <h3 class="product__title">Flowstate Desktop</h3>
+                <p class="product__text">A quiet layer over your whole machine. Start a session from the menu bar; distracting apps and sites wait outside.</p>
+              </div>
+              <div class="product__stage" aria-hidden="true">
+                <span class="layer layer--glow" data-depth="0.4" style="--g1:#27e3f2;--g2:#3d6bff"></span>
+                <div class="layer mock-window" data-depth="1">
+                  <div class="mock-window__bar"><i></i><i></i><i></i></div>
+                  <div class="mock-window__body">
+                    <span class="mock-window__label">Session · 2 of 3</span>
+                    <span class="mock-window__time">42:17</span>
+                    <span class="mock-window__track"><span></span></span>
+                  </div>
+                </div>
+                <span class="layer float-chip" data-depth="1.8">12 distractions held</span>
+              </div>
+            </li>
+            <li class="product card">
+              <div class="product__copy">
+                <p class="product__tag">iOS &amp; Android</p>
+                <h3 class="product__title">Flowstate Mobile</h3>
+                <p class="product__text">Your phone becomes an ally: notifications batch, Focus modes sync, and one glance tells you how deep you are.</p>
+              </div>
+              <div class="product__stage" aria-hidden="true">
+                <span class="layer layer--glow" data-depth="0.4" style="--g1:#3d6bff;--g2:#9a4dff"></span>
+                <div class="layer mock-phone" data-depth="1">
+                  <span class="mock-phone__notch"></span>
+                  <span class="mock-phone__ring"></span>
+                  <span class="mock-phone__caption">In flow · 1h 12m</span>
+                </div>
+                <span class="layer float-chip" data-depth="1.8">Notifications batched</span>
+              </div>
+            </li>
+            <li class="product card">
+              <div class="product__copy">
+                <p class="product__tag">Adaptive audio</p>
+                <h3 class="product__title">Flowstate Sound</h3>
+                <p class="product__text">Generative soundscapes that slow as you settle in: rain on glass, deep brown noise, a distant ocean.</p>
+              </div>
+              <div class="product__stage" aria-hidden="true">
+                <span class="layer layer--glow" data-depth="0.4" style="--g1:#9a4dff;--g2:#f03ce0"></span>
+                <div class="layer mock-wave" data-depth="1">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span class="layer float-chip" data-depth="1.8">Now playing · Tidewater</span>
+              </div>
+            </li>
+            <li class="product card">
+              <div class="product__copy">
+                <p class="product__tag">For teams of 3+</p>
+                <h3 class="product__title">Flowstate Teams</h3>
+                <p class="product__text">Shared focus hours, meeting-free blocks and gentle status, so colleagues know when you’re under.</p>
+              </div>
+              <div class="product__stage" aria-hidden="true">
+                <span class="layer layer--glow" data-depth="0.4" style="--g1:#f03ce0;--g2:#27e3f2"></span>
+                <div class="layer mock-team" data-depth="1">
+                  <div class="mock-team__row"><span class="avatar" style="--a:#27e3f2">AK</span><span class="mock-team__name">Ama</span><span class="status status--flow">In flow</span></div>
+                  <div class="mock-team__row"><span class="avatar" style="--a:#9a4dff">JR</span><span class="mock-team__name">Jun</span><span class="status status--flow">In flow</span></div>
+                  <div class="mock-team__row"><span class="avatar" style="--a:#f03ce0">SM</span><span class="mock-team__name">Sol</span><span class="status">Available</span></div>
+                </div>
+                <span class="layer float-chip" data-depth="1.8">Team focus hour · 2pm</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="eyebrow">Pricing</p>
+          <h2 class="title" id="pricing-title">Simple pricing for deep work</h2>
+          <p class="lede">Start free. Upgrade when Flowstate becomes the way you work.</p>
+        </div>
+
+        <div class="billing" role="group" aria-label="Billing period" data-reveal>
+          <span class="billing__thumb" aria-hidden="true"></span>
+          <button type="button" class="billing__opt" data-billing="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" class="billing__opt" data-billing="yearly" aria-pressed="false">Yearly <span class="billing__save">−20%</span></button>
+        </div>
+
+        <div class="plans">
+          <article class="plan card" data-reveal>
+            <h3 class="plan__name">Starter</h3>
+            <p class="plan__desc">For finding your first flow.</p>
+            <p class="price" data-monthly="0" data-yearly="0"><span class="price__cur">$</span><span class="price__amount">0</span><span class="price__per">/mo</span></p>
+            <p class="plan__note" data-note-monthly="Free forever" data-note-yearly="Free forever">Free forever</p>
+            <a href="#get-started" class="pill pill--ghost plan__cta"><span class="pill__label">Start free</span></a>
+            <ul class="plan__list">
+              <li>Unlimited focus sessions</li>
+              <li>Basic site blocking</li>
+              <li>3 soundscapes</li>
+            </ul>
+          </article>
+
+          <article class="plan plan--pro" data-reveal>
+            <div class="plan__border" aria-hidden="true"><span class="plan__spin"></span></div>
+            <div class="plan__inner">
+              <div class="plan__row">
+                <h3 class="plan__name">Pro</h3>
+                <span class="plan__badge">Most popular</span>
+              </div>
+              <p class="plan__desc">For people who do their best work deep.</p>
+              <p class="price" data-monthly="15" data-yearly="12"><span class="price__cur">$</span><span class="price__amount">15</span><span class="price__per">/mo</span></p>
+              <p class="plan__note" data-note-monthly="Billed monthly" data-note-yearly="$144 billed yearly">Billed monthly</p>
+              <a href="#get-started" class="pill plan__cta" data-magnetic><span class="pill__label">Join the waitlist</span></a>
+              <ul class="plan__list">
+                <li>Everything in Starter</li>
+                <li>Smart blocking on every device</li>
+                <li>Full soundscape library</li>
+                <li>Flow analytics &amp; streaks</li>
+                <li>Calendar shield</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="plan card" data-reveal>
+            <h3 class="plan__name">Teams</h3>
+            <p class="plan__desc">For teams that protect each other’s focus.</p>
+            <p class="price" data-monthly="30" data-yearly="24"><span class="price__cur">$</span><span class="price__amount">30</span><span class="price__per">/seat/mo</span></p>
+            <p class="plan__note" data-note-monthly="Billed monthly" data-note-yearly="$288 per seat, billed yearly">Billed monthly</p>
+            <a href="#get-started" class="pill pill--ghost plan__cta"><span class="pill__label">Talk to us</span></a>
+            <ul class="plan__list">
+              <li>Everything in Pro</li>
+              <li>Shared focus hours</li>
+              <li>Team flow analytics</li>
+              <li>SSO &amp; admin controls</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOG ============ -->
+    <section class="section blog" id="blog" aria-labelledby="blog-title">
+      <div class="container">
+        <div class="blog__head">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Blog</p>
+            <h2 class="title" id="blog-title">Notes from the deep end</h2>
+          </div>
+          <a href="#blog" class="pill pill--ghost" data-reveal><span class="pill__label">All articles</span></a>
+        </div>
+
+        <div class="posts">
+          <article class="post" data-reveal>
+            <a href="#blog" class="post__link">
+              <div class="post__thumb" style="--t1:#27e3f2;--t2:#3d6bff;--t3:#9a4dff" aria-hidden="true"><span class="post__thumb-inner"></span></div>
+              <p class="post__meta">Research · 6 min read</p>
+              <h3 class="post__title">The 90-minute rule: why your best work comes in waves</h3>
+              <span class="post__more">Read article
+                <span class="arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </a>
+          </article>
+          <article class="post" data-reveal>
+            <a href="#blog" class="post__link">
+              <div class="post__thumb" style="--t1:#9a4dff;--t2:#f03ce0;--t3:#3d6bff" aria-hidden="true"><span class="post__thumb-inner"></span></div>
+              <p class="post__meta">Teams · 8 min read</p>
+              <h3 class="post__title">Designing a distraction budget for your team</h3>
+              <span class="post__more">Read article
+                <span class="arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </a>
+          </article>
+          <article class="post" data-reveal>
+            <a href="#blog" class="post__link">
+              <div class="post__thumb" style="--t1:#f03ce0;--t2:#27e3f2;--t3:#3d6bff" aria-hidden="true"><span class="post__thumb-inner"></span></div>
+              <p class="post__meta">Data · 5 min read</p>
+              <h3 class="post__title">What 2.4 million focus minutes taught us</h3>
+              <span class="post__more">Read article
+                <span class="arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section cta" id="get-started" aria-labelledby="cta-title">
+      <div class="container cta__inner">
+        <p class="eyebrow" data-reveal>Get early access</p>
+        <h2 class="cta__title" id="cta-title">Your best work is waiting on the other side of the noise.</h2>
+        <p class="lede cta__lede" data-reveal>Join 10,000+ people reclaiming their attention. Seats open in waves, and we’ll email you once, when yours is ready.</p>
+        <div class="cta__form" data-reveal>
+          <form class="waitlist" data-waitlist novalidate>
+            <label class="sr-only" for="cta-email">Email address</label>
+            <div class="waitlist__bar">
+              <input class="waitlist__input" id="cta-email" name="email" type="email" required autocomplete="email" placeholder="Enter your email" aria-describedby="cta-email-msg">
+              <button type="submit" class="pill" data-magnetic><span class="pill__label">Join Waitlist</span></button>
+            </div>
+            <p class="waitlist__msg" id="cta-email-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <a href="/" class="brand" aria-label="Flowstate home">
+          <svg class="brand__glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M2.5 9c2.5 0 2.5 4.2 5 4.2S10 9 12 9s2.5 4.2 5 4.2S19.5 9 21.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M2.5 15c2.5 0 2.5 4.2 5 4.2S10 15 12 15s2.5 4.2 5 4.2S19.5 15 21.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+          <span>Flowstate</span>
+        </a>
+        <p class="footer__tag">Engineered for deep work.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <div class="footer__col">
+          <p class="footer__heading">Product</p>
+          <ul>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Company</p>
+          <ul>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#get-started">Waitlist</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Legal</p>
+          <ul>
+            <li><a href="#main">Privacy</a></li>
+            <li><a href="#main">Terms</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer__mark" aria-hidden="true"><span class="footer__word">Flowstate</span></div>
+    <div class="container footer__bottom">
+      <p>© 2026 Flowstate. All rights reserved.</p>
+      <p>Made for people who’d rather be making things.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

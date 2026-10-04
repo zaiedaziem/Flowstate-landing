@@ -1,0 +1,56 @@
+/* Design tokens. The first block is SPEC.md verbatim; the rest extends it. */
+:root {
+  --hero-base:            #04050c;   /* base behind the shader */
+  --heading:             #eef0f6;   /* bright heading / input text */
+  --body-muted:          #b9becf;   /* body copy, nav links, badge, footer */
+  --on-media:            #ffffff;   /* brand text/icons sitting on the shader */
+  --action-inverse:      #ffffff;   /* white pill button bg */
+  --action-inverse-fg:   #2f2f33;   /* dark text on the white pill */
+  --glass-fill:          rgba(255,255,255,0.08);
+  --glass-border:        rgba(255,255,255,0.16);
+  --scrim:               rgba(4,5,12,0.46);
+  --scrim-strong:        rgba(4,5,12,0.68);
+  --scrim-soft:          rgba(4,5,12,0.12);
+  --duration-fast:       150ms;
+  --ease-entrance:       cubic-bezier(0.2, 0, 0, 1);
+
+  /* Accent — the fluid's own hue band (HSV 0.50 → 0.92). */
+  --ink-cyan:    #27e3f2;
+  --ink-blue:    #3d6bff;
+  --ink-violet:  #9a4dff;
+  --ink-magenta: #f03ce0;
+  --ink: linear-gradient(90deg, var(--ink-cyan), var(--ink-blue) 35%, var(--ink-violet) 65%, var(--ink-magenta));
+
+  --glass-fill-strong: rgba(255,255,255,0.05);
+  --surface:           rgba(10,12,24,0.62);
+  --surface-solid:     #0a0b16;
+  --hairline:          rgba(255,255,255,0.10);
+  --body-dim:          #8b91a6;
+
+  --radius-sm: 0.75rem;
+  --radius:    1.25rem;
+  --radius-lg: 1.75rem;
+
+  --duration-base:  700ms;
+  --duration-slow:  1100ms;
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out:    cubic-bezier(0.65, 0, 0.35, 1);
+
+  --gutter: 1.25rem;
+  --container: 76rem;
+  --section-space: 6.5rem;
+
+  --z-fluid: 0;
+  --z-scrim: 1;
+  --z-content: 10;
+  --z-nav: 40;
+  --z-progress: 50;
+  --z-cursor: 100;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: 2.5rem;
+    --section-space: 9rem;
+  }
+}

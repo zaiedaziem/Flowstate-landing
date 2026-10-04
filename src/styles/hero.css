@@ -1,0 +1,159 @@
+/* ---------- Nav (fixed site-wide; geometry per SPEC.md) ---------- */
+.site-nav {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: var(--z-nav);
+}
+/* Soft backing that fades in once the page has scrolled. */
+.site-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 -1.5rem;
+  background: linear-gradient(180deg, rgba(4, 5, 12, 0.82), rgba(4, 5, 12, 0));
+  opacity: 0;
+  transition: opacity 400ms var(--ease-entrance);
+  pointer-events: none;
+}
+.site-nav.is-scrolled::before { opacity: 1; }
+
+.site-nav__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--on-media);
+  letter-spacing: -0.01em;
+}
+.brand__glyph { width: 1.35rem; height: 1.35rem; stroke: currentColor; }
+.nav-links {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3rem;
+  align-items: center;
+  gap: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  padding: 0 1.75rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--body-muted);
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-entrance);
+}
+.nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--heading); }
+
+@media (min-width: 640px) {
+  .site-nav__inner { padding: 1.75rem 2.5rem; }
+  .brand { font-size: 1.375rem; }
+  .brand__glyph { width: 1.5rem; height: 1.5rem; }
+  .nav-links { display: flex; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100lvh;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding: 0 1.25rem;
+}
+.hero__col {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 22rem;
+}
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-fill);
+  padding: 0.4rem 0.875rem;
+  font-size: 0.72rem;
+  color: var(--body-muted);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.hero__title {
+  margin-top: 1.25rem;
+  max-width: 20rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  text-align: center;
+}
+.hero__sub {
+  margin-top: 1rem;
+  max-width: 20rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--body-muted);
+}
+.hero__form {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.hero__foot {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem;
+  font-size: 0.72rem;
+  color: var(--body-muted);
+}
+
+@media (min-width: 640px) {
+  .hero { padding: 0 2.5rem; }
+  .hero__col { max-width: 40rem; }
+  .hero__badge { font-size: 0.8rem; }
+  .hero__title { margin-top: 1.75rem; max-width: 34rem; font-size: 3.5rem; }
+  .hero__sub { margin-top: 1.25rem; max-width: 34rem; font-size: 1.1rem; }
+  .hero__form { margin-top: 2.5rem; }
+  .hero__foot { padding: 1.5rem 2.5rem; font-size: 0.8rem; }
+}
+@media (min-width: 1024px) {
+  .hero__col { max-width: 52rem; }
+  .hero__title { max-width: 46rem; font-size: 5rem; }
+  .hero__sub { max-width: none; font-size: 1.2rem; }
+}
+
+/* Hide hero blocks until GSAP has set their start state. If the script never
+   runs, a failsafe reveals them so text is never stranded. */
+.js:not(.hero-ready) [data-hero-item],
+.js:not(.reveal-ready) [data-reveal] {
+  opacity: 0;
+  animation: hero-failsafe 0.6s var(--ease-entrance) 2.5s forwards;
+}
+@keyframes hero-failsafe { to { opacity: 1; } }
